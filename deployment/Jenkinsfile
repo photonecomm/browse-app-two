@@ -7,7 +7,7 @@ node {
 	])
 
 	stage('Clone') {
-		dir('util-app') {
+		dir('browse-app-two') {
 			checkout scm
 			sh 'npm install'
 		}
@@ -15,7 +15,7 @@ node {
 
 	stage('CSS Lint') {
         try {
-			dir('util-app') {
+			dir('browse-app-two') {
 				sh 'npm run csslint'
 			}
         } catch (exc) {
@@ -28,7 +28,7 @@ node {
     }
 
 	stage('JS Lint') {
-        dir('util-app') {
+        dir('browse-app-two') {
             try {
                 sh 'npm run jslint'
             } catch (exc) {
@@ -41,7 +41,7 @@ node {
     }
 
 	stage('Unit Test') {
-        dir('util-app') {
+        dir('browse-app-two') {
             try {
                 sh 'npm run unit-test'
             } catch (exc) {
@@ -56,10 +56,10 @@ node {
 
 	stage ('Build') {
         try {
-            dir('util-app') {
+            dir('browse-app-two') {
                 sh 'npm run build-prod ; npm run pack'
-                sh "docker build --no-cache -f deployment/Dockerfile -t util-app:${env.BUILD_NUMBER} ."
-                sh "docker tag util-app:${env.BUILD_NUMBER} phnueopsacrl01.azurecr.io/dotcom/util-app:${env.BUILD_NUMBER}"
+                sh "docker build --no-cache -f deployment/Dockerfile -t browse-app-two:${env.BUILD_NUMBER} ."
+                sh "docker tag browse-app-two:${env.BUILD_NUMBER} phnueopsacrl01.azurecr.io/dotcom/browse-app-two:${env.BUILD_NUMBER}"
 				sh 'docker login --username=phnueopsacrl01 --password="3n96EcI/prHEJnq1krKWCvlG4UDG+dFH" https://phnueopsacrl01.azurecr.io'
                 sh "docker push phnueopsacrl01.azurecr.io/ecomm-app:${env.BUILD_NUMBER}"
             }
