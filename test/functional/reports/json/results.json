@@ -1,0 +1,48 @@
+[
+  {
+    "id": "Test-case-for-Boiler-plate-Body",
+    "name": "Test case for Boiler plate Body",
+    "description": "",
+    "line": 1,
+    "keyword": "Feature",
+    "uri": "C:\\Users\\selvakumar_tha\\Desktop\\Learnings\\26032018\\browse-app-two\\browse-app\\test\\functional\\features\\app.feature",
+    "elements": [
+      {
+        "name": "Check the Boiler plate Body section",
+        "id": "Test-case-for-Boiler-plate-Body;check-the-boiler-plate-body-section",
+        "line": 8,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@home",
+            "line": 2
+          }
+        ],
+        "steps": [
+          {
+            "name": "Customer open Boiler plate page \"/page2\"",
+            "line": 4,
+            "keyword": "Given ",
+            "result": {
+              "status": "passed",
+              "duration": 1916507
+            },
+            "match": {}
+          },
+          {
+            "name": "Customer check the Walgreens UI microservices Boilerplate text in home",
+            "line": 5,
+            "keyword": "When ",
+            "result": {
+              "status": "passed",
+              "duration": 20451011811
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  }
+]

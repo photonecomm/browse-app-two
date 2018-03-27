@@ -1,0 +1,76 @@
+{
+	"name": "browse-app",
+	"version": "1.0.0",
+	"description": "Browse app",
+	"main": "Client.js",
+	"scripts": {
+		"jslint":
+			"eslint -f checkstyle -o ./reports/jslint.xml src --ext .js --ext .jsx",
+		"jslint-console": "eslint src --ext .js --ext .jsx",
+		"csslint":
+			"csslint ./src --format=checkstyle-xml --exclude-list=node_modules,./src/ui/swagger,./src/ui/app/assets > ./reports/csslint.xml",
+		"csslint-console":
+			"csslint ./src --exclude-list=node_modules,./src/ui/swagger,./src/ui/app/assets",
+		"e2e-start":
+			"npm install -g protractor && webdriver-manager update && webdriver-manager start",
+		"e2e-test":
+			"cross-env ENV_SERVER=local protractor test/functional/config.js",
+		"unit-test":
+			"cross-env NODE_ENV=test ENV_SERVER=local node --max_old_space_size=4096 node_modules/nyc/bin/nyc.js mocha --timeout 15000 --reporter mochawesome --reporter-options reportDir=test/unit/reports/status,enableCode=false,reportFilename=index,reportPageTitle='Unit Test report',inlineAssets=true --progress --require ./test/unit/utils/helper.js \"./test/unit/specs/**/*.js\"",
+		"pack":
+			"rm -rf node_modules && npm install --production && mkdir -p build && zip -r build/browse-app.zip config dist node_modules package.json src/api/resources",
+		"webpack": "webpack --config ./webpack.config.prod.js --progress -p",
+		"build-dev":
+			"npm install && node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js --config ./webpack.config.js --watch --progress -d",
+		"build-prod": "npm install && npm run webpack",
+		"install-pm2": "npm install pm2 -g",
+		"start-dev":
+			"cross-env ENV_SERVER=local ENV_COMMON_MODULE=true node dist/server-bundle.js",
+		"pm2-start":
+			"ENV_COMMON_MODULE=true pm2 start config/pm2.json --env production",
+		"start":
+			"ENV_COMMON_MODULE=true NODE_ENV=production node dist/server-bundle.js"
+	},
+	"dependencies": {
+		"axios": "0.15.3",
+		"axios-cancel": "0.2.2",
+		"express": "4.15.2",
+		"compression": "1.6.2",
+		"body-parser": "1.17.1",
+		"html-to-json": "0.6.0",
+		"async": "1.5.0",
+		"fs-promise": "0.3.1",
+		"underscore": "1.8.3",
+		"yamljs": "0.3.0",
+		"react": "15.4.2",
+		"react-dom": "15.4.2"
+	},
+	"devDependencies": {
+		"babel-core": "6.23.1",
+		"babel-eslint": "7.2.2",
+		"babel-loader": "6.4.1",
+		"babel-preset-es2015": "6.22.0",
+		"babel-preset-react": "6.23.0",
+		"css-loader": "0.26.1",
+		"cross-env": "5.0.0",
+		"eslint": "3.19.0",
+		"eslint-loader": "1.7.1",
+		"webpack": "2.2.1",
+		"mocha": "3.2.0",
+		"mochawesome": "2.0.5",
+		"chai": "3.5.0",
+		"sinon": "2.2.0",
+		"nyc": "10.2.0",
+		"clean-webpack-plugin": "0.1.16",
+		"webpack-node-externals": "1.5.4",
+		"cucumber": "0.9.1",
+		"cucumber-html-reporter": "0.4.2",
+		"protractor-cucumber-framework": "0.6.0",
+		"chai-as-promised": "6.0.0",
+		"eslint-plugin-react": "6.10.3",
+		"enzyme": "2.8.2",
+		"react-addons-test-utils": "15.5.1",
+		"jsdom": "9.9.0",
+		"babel-plugin-istanbul": "4.1.5"
+	}
+}

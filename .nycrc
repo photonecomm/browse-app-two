@@ -1,0 +1,25 @@
+{
+	"include": [
+		"src/ui/components/app/*.js"
+	],
+	"reporter": [
+		"html",
+		"text-summary"
+	],
+	"extension": [
+		".js"
+	],
+	"cache": true,
+    "all": true,
+    "lines": 85,
+    "statements": 85,
+    "functions": 85,
+    "branches": 85,
+    "check-coverage": true,
+    "report-dir": "./test/unit/reports/coverage",
+	"require": [
+		"babel-register"
+	],
+	"sourceMap": false,
+    "instrument": false
+}

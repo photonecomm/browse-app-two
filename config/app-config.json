@@ -1,0 +1,21 @@
+{
+	"env_app_name": "browse-app",
+	"env_config_server_port": 8082,
+	"env_api": {
+		"client": {
+			"url": "${ENV_API_URL}"
+		},
+		"server": {
+			"url": "${ENV_API_URL}"
+		}
+	},
+	"env_helloworld_api": {
+		"url": "/search/v1/api",
+		"timeout": {
+			"server": 1000,
+			"client": 1000,
+			"stream": 1000
+		}
+	},
+	"env_functional_test_url": "${ENV_FUNCTIONAL_TEST_URL}"
+}

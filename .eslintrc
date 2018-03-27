@@ -1,0 +1,27 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": [2, "tab"],
+        "max-len": [1, 120, 2, {ignoreComments: true}],
+        "quotes": [1, "single", {"allowTemplateLiterals": true}],
+        "curly": [2, "multi-line", "consistent"],
+        "strict": [2, "never"],
+        "semi": [2, "always"],
+        "no-console": 1,
+        "no-unused-vars": [2, { "vars": "all", "args": "after-used" }],
+        "no-redeclare": [2, { "builtinGlobals": true }],
+        "brace-style": [2, "1tbs"],
+        "no-alert": 1,
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1,
+        "react/jsx-no-duplicate-props": 1,
+        "react/react-in-jsx-scope": 1
+    }
+}

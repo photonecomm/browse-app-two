@@ -1,0 +1,11 @@
+{
+    "apps" : [
+    	{
+    		"name":"util-app",
+    		"script":"dist/server_bundle.js",
+    		"env_production" : {
+      			"NODE_ENV": "production"
+    		}
+    	}
+    ]
+}

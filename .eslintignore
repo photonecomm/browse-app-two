@@ -1,0 +1,4 @@
+node_modules
+dist
+src/ui/app/assets/js
+src/ui/swagger

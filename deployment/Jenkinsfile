@@ -1,0 +1,81 @@
+node {
+	properties([
+		parameters([
+			[$class: 'CredentialsParameterDefinition', credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: 'bd689c9e-a8df-4983-a314-dcd67f64227b', description: '', name: 'git_creds', required: true]
+		]),
+		[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '10']]
+	])
+
+	stage('Clone') {
+		dir('util-app') {
+			checkout scm
+			sh 'npm install'
+		}
+	}
+
+	stage('CSS Lint') {
+        try {
+			dir('util-app') {
+				sh 'npm run csslint'
+			}
+        } catch (exc) {
+            checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'reports/*.xml', unHealthy: ''
+            // currentBuild.result = "FAILURE"
+            // throw exc
+        } finally {
+
+        }
+    }
+
+	stage('JS Lint') {
+        dir('util-app') {
+            try {
+                sh 'npm run jslint'
+            } catch (exc) {
+                // currentBuild.result = "FAILURE"
+                // throw exc
+            } finally {
+                checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'reports/*.xml', unHealthy: ''
+            }
+        }
+    }
+
+	stage('Unit Test') {
+        dir('util-app') {
+            try {
+                sh 'npm run unit-test'
+            } catch (exc) {
+                // currentBuild.result = "FAILURE"
+                // throw exc
+            } finally {
+                publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'test/unit/reports/coverage', reportFiles: 'index.html', reportName: 'Unit Test Coverage', reportTitles: 'Coverage'])
+                publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'test/unit/reports/status', reportFiles: 'index.html', reportName: 'Unit Test Results', reportTitles: 'TestReport'])
+            }
+        }
+    }
+
+	stage ('Build') {
+        try {
+            dir('util-app') {
+                sh 'npm run build-prod ; npm run pack'
+                sh "docker build --no-cache -f deployment/Dockerfile -t util-app:${env.BUILD_NUMBER} ."
+                sh "docker tag util-app:${env.BUILD_NUMBER} phnueopsacrl01.azurecr.io/dotcom/util-app:${env.BUILD_NUMBER}"
+				sh 'docker login --username=phnueopsacrl01 --password="3n96EcI/prHEJnq1krKWCvlG4UDG+dFH" https://phnueopsacrl01.azurecr.io'
+                sh "docker push phnueopsacrl01.azurecr.io/ecomm-app:${env.BUILD_NUMBER}"
+            }
+        } catch (exc) {
+            currentBuild.result = "FAILURE"
+            throw exc
+        } finally {
+
+        }
+    }
+
+	stage('Send Success Mail') {
+		mail body: "util-app Build Success: ${env.BUILD_URL}" ,
+		from: 'test@test.com',
+		replyTo: 'test@test.com',
+		subject: "util-app Build completed Successfully #${env.BUILD_NUMBER}",
+		to: 'test@test.com'
+    }
+}
