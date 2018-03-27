@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { commonAPI as app, startServer } from '../util/ExpressJSUtils.js';
 import { configManagerObj } from '../util/ConfigManager.js';
 
-//import App from './components/app/app';
+import {HelloWorld} from './components/helloWorld/helloWorld';
 
 const PORT = configManagerObj.env_config_server_port;
 
@@ -16,7 +16,7 @@ app.get(healthInfoURL, function(req, res) {
 
 const pageURL = '/helloworld';
 app.get(pageURL, function(req, res) {
-	let htmlString = renderToString(<App/>);
+	let htmlString = renderToString(<HelloWorld/>);
 	res.send(htmlString);
 });
 
