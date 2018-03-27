@@ -12,7 +12,6 @@ global.window = doc.defaultView;
 
 describe("Render Root", () => {
 	const wrapper = mount(<HelloWorld />);
-
 	it("wag-root available ", () => {
 		expect(wrapper.find(".one").length).to.equal(1);
 	});

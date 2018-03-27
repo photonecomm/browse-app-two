@@ -1,6 +1,6 @@
 {
 	"include": [
-		"src/ui/components/app/*.js"
+		"src/ui/components/helloWorld/*.js"
 	],
 	"reporter": [
 		"html",
