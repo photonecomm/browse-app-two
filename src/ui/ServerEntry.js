@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { commonAPI as app, startServer } from '../util/ExpressJSUtils.js';
 import { configManagerObj } from '../util/ConfigManager.js';
 
-import App from './components/app/app';
+//import App from './components/app/app';
 
 const PORT = configManagerObj.env_config_server_port;
 
