@@ -4,32 +4,21 @@
 	"description": "Browse app",
 	"main": "Client.js",
 	"scripts": {
-		"jslint":
-			"eslint -f checkstyle -o ./reports/jslint.xml src --ext .js --ext .jsx",
+		"jslint": "eslint -f checkstyle -o ./reports/jslint.xml src --ext .js --ext .jsx",
 		"jslint-console": "eslint src --ext .js --ext .jsx",
-		"csslint":
-			"csslint ./src --format=checkstyle-xml --exclude-list=node_modules,./src/ui/swagger,./src/ui/app/assets > ./reports/csslint.xml",
-		"csslint-console":
-			"csslint ./src --exclude-list=node_modules,./src/ui/swagger,./src/ui/app/assets",
-		"e2e-start":
-			"npm install -g protractor && webdriver-manager update && webdriver-manager start",
-		"e2e-test":
-			"cross-env ENV_SERVER=local protractor test/functional/config.js",
-		"unit-test":
-			"cross-env NODE_ENV=test ENV_SERVER=local node --max_old_space_size=4096 node_modules/nyc/bin/nyc.js mocha --timeout 15000 --reporter mochawesome --reporter-options reportDir=test/unit/reports/status,enableCode=false,reportFilename=index,reportPageTitle='Unit Test report',inlineAssets=true --progress --require ./test/unit/utils/helper.js \"./test/unit/specs/**/*.js\"",
-		"pack":
-			"rm -rf node_modules && npm install --production && mkdir -p build && zip -r build/browse-app.zip config dist node_modules package.json src/api/resources",
+		"csslint": "csslint ./src --format=checkstyle-xml --exclude-list=node_modules,./src/ui/swagger,./src/ui/app/assets > ./reports/csslint.xml",
+		"csslint-console": "csslint ./src --exclude-list=node_modules,./src/ui/swagger,./src/ui/app/assets",
+		"e2e-start": "npm install -g protractor && webdriver-manager update && webdriver-manager start",
+		"e2e-test": "cross-env ENV_SERVER=local protractor test/functional/config.js",
+		"unit-test": "cross-env NODE_ENV=test ENV_SERVER=local node --max_old_space_size=4096 node_modules/nyc/bin/nyc.js mocha --timeout 15000 --reporter mochawesome --reporter-options reportDir=test/unit/reports/status,enableCode=false,reportFilename=index,reportPageTitle='Unit Test report',inlineAssets=true --progress --require ./test/unit/utils/helper.js \"./test/unit/specs/**/*.js\"",
+		"pack": "rm -rf node_modules && npm install --production && mkdir -p build && zip -r build/browse-app.zip config dist node_modules package.json src/api/resources",
 		"webpack": "webpack --config ./webpack.config.prod.js --progress -p",
-		"build-dev":
-			"npm install && node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js --config ./webpack.config.js --watch --progress -d",
+		"build-dev": "npm install && node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js --config ./webpack.config.js --watch --progress -d",
 		"build-prod": "npm install && npm run webpack",
 		"install-pm2": "npm install pm2 -g",
-		"start-dev":
-			"cross-env ENV_SERVER=local ENV_COMMON_MODULE=true node dist/server-bundle.js",
-		"pm2-start":
-			"ENV_COMMON_MODULE=true pm2 start config/pm2.json --env production",
-		"start":
-			"ENV_COMMON_MODULE=true NODE_ENV=production node dist/server-bundle.js"
+		"start-dev": "cross-env ENV_SERVER=local ENV_COMMON_MODULE=true node dist/server-bundle.js",
+		"pm2-start": "ENV_COMMON_MODULE=true pm2 start config/pm2.json --env production",
+		"start": "ENV_COMMON_MODULE=true NODE_ENV=production node dist/server-bundle.js"
 	},
 	"dependencies": {
 		"axios": "0.15.3",

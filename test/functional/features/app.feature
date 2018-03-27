@@ -5,4 +5,4 @@ Feature: Test case for Boiler plate Body
         When Customer check the Walgreens UI microservices Boilerplate text in home
     Examples: 
     | url |
-    | /page2 |
+    | /helloworld |

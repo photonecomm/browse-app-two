@@ -5,7 +5,7 @@
     "description": "",
     "line": 1,
     "keyword": "Feature",
-    "uri": "C:\\Users\\selvakumar_tha\\Desktop\\Learnings\\26032018\\browse-app-two\\browse-app\\test\\functional\\features\\app.feature",
+    "uri": "C:\\Users\\dheerajkumar_p\\Documents\\Photon\\browse-app-two\\test\\functional\\features\\app.feature",
     "elements": [
       {
         "name": "Check the Boiler plate Body section",
@@ -22,12 +22,12 @@
         ],
         "steps": [
           {
-            "name": "Customer open Boiler plate page \"/page2\"",
+            "name": "Customer open Boiler plate page \"/helloworld\"",
             "line": 4,
             "keyword": "Given ",
             "result": {
               "status": "passed",
-              "duration": 1916507
+              "duration": 2182198
             },
             "match": {}
           },
@@ -37,7 +37,7 @@
             "keyword": "When ",
             "result": {
               "status": "passed",
-              "duration": 20451011811
+              "duration": 19394361220
             },
             "match": {}
           }

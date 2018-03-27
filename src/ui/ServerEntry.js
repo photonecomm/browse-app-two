@@ -14,7 +14,7 @@ app.get(healthInfoURL, function(req, res) {
 	res.send(responseData);
 });
 
-const pageURL = '/page2';
+const pageURL = '/helloworld';
 app.get(pageURL, function(req, res) {
 	let htmlString = renderToString(<App/>);
 	res.send(htmlString);
