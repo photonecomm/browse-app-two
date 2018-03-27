@@ -1,6 +1,6 @@
 {
 	"env_app_name": "browse-app-two",
-	"env_config_server_port": 8082,
+	"env_config_server_port": 8080,
 	"env_api": {
 		"client": {
 			"url": "${ENV_API_URL}"

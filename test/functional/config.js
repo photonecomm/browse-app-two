@@ -1,5 +1,5 @@
 /** (c) Walgreen Co. All rights reserved.**/
-let functionalTestURL = 'http://localhost:8082';
+let functionalTestURL = 'http://localhost:8080';
 exports.config = {
 	seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
 	getPageTimeout: 9000,

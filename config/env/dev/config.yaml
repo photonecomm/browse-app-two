@@ -4,5 +4,5 @@ metadata:
   name: browse-app-config
   namespace: dotcom-dev
 data:
-  ENV_API_URL: "http://localhost:8083"
-  ENV_FUNCTIONAL_TEST_URL: "http://localhost:8082"
+  ENV_API_URL: "http://localhost:8081"
+  ENV_FUNCTIONAL_TEST_URL: "http://localhost:8080"
