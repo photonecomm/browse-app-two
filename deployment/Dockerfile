@@ -10,5 +10,5 @@ RUN unzip  ${APP_PATH}/browse-app-two.zip -d ${APP_PATH}
 
 RUN rm -f ${APP_PATH}/browse-app-two.zip
 
-EXPOSE 8080
+EXPOSE 8082
 CMD [ "npm", "run", "start" ]
