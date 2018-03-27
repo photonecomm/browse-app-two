@@ -5,7 +5,7 @@
     "description": "",
     "line": 1,
     "keyword": "Feature",
-    "uri": "C:\\Users\\dheerajkumar_p\\Documents\\Photon\\browse-app-two\\test\\functional\\features\\app.feature",
+    "uri": "C:\\Users\\selvakumar_tha\\Desktop\\Learnings\\26032018\\browse-app-two\\browse-app\\test\\functional\\features\\app.feature",
     "elements": [
       {
         "name": "Check the Boiler plate Body section",
@@ -27,7 +27,7 @@
             "keyword": "Given ",
             "result": {
               "status": "passed",
-              "duration": 2182198
+              "duration": 2315546
             },
             "match": {}
           },
@@ -36,8 +36,9 @@
             "line": 5,
             "keyword": "When ",
             "result": {
-              "status": "passed",
-              "duration": 19394361220
+              "status": "failed",
+              "duration": 12611808696,
+              "error_message": "NoSuchElementError: No element found using locator: By(css selector, .one)\n    at elementArrayFinder.getWebElements.then (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27)\n    at ManagedPromise.invokeCallback_ (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at asyncRun (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27)\n    at C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:160:7)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.(anonymous function).args [as isDisplayed] (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.(anonymous function).args [as isDisplayed] (C:\\Users\\selvakumar_tha\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at World.<anonymous> (C:\\Users\\selvakumar_tha\\Desktop\\Learnings\\26032018\\browse-app-two\\browse-app\\test\\functional\\features\\step_definitions\\app.js:34:35)"
             },
             "match": {}
           }
