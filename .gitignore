@@ -2,5 +2,6 @@
 build/
 node_modules
 test/unit/reports
+test/functional/reports
 dist/
 log/
